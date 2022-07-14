@@ -10,6 +10,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Sort
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
-import me.wkai.prac_noteapp.feature_note.domain.util.NoteOrder
 import me.wkai.prac_noteapp.feature_note.presentation.notes.components.NoteItem
 import me.wkai.prac_noteapp.feature_note.presentation.notes.components.OrderSection
 import me.wkai.prac_noteapp.feature_note.presentation.util.Screen
@@ -28,7 +29,7 @@ fun NotesScreen(
 	viewModel:NotesViewModel = hiltViewModel()
 ) {
 
-	val state = viewModel.state.value
+	val state by viewModel.state
 	val scaffoldState = rememberScaffoldState() //鷹架state
 	val scope = rememberCoroutineScope()
 

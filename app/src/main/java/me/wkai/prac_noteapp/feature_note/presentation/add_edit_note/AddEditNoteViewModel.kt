@@ -1,5 +1,6 @@
 package me.wkai.prac_noteapp.feature_note.presentation.add_edit_note
 
+import android.widget.Toast
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
@@ -8,6 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import me.wkai.prac_noteapp.feature_note.domain.model.InvalidNoteException
@@ -24,6 +27,7 @@ class AddEditNoteViewModel @Inject constructor(
 
 	//目前noteId (null則新增)
 	private var currentNoteId:Int? = null
+
 
 	//標題
 	private val _noteTitle = mutableStateOf(
@@ -50,7 +54,6 @@ class AddEditNoteViewModel @Inject constructor(
 	// 例如: 旋轉方向後, 標題&內文&顏色 將會保持, 而小吃提示應只跳出一次
 	private val _eventFlow = MutableSharedFlow<UiEvent>()
 	val eventFlow = _eventFlow.asSharedFlow()
-
 
 	//初始化 = 進入編輯頁時
 	// (當非-1) 設定目前的noteId = 點開的note,
