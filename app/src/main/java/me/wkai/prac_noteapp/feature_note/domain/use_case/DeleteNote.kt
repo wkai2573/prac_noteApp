@@ -1,7 +1,7 @@
 package me.wkai.prac_noteapp.feature_note.domain.use_case
 
+import me.wkai.prac_noteapp.feature_note.data.repository.NoteRepository
 import me.wkai.prac_noteapp.feature_note.domain.model.Note
-import me.wkai.prac_noteapp.feature_note.domain.repository.NoteRepository
 
 class DeleteNote(
 	private val repository:NoteRepository

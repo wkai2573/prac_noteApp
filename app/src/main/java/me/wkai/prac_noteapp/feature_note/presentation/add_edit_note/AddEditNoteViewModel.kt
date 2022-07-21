@@ -50,8 +50,7 @@ class AddEditNoteViewModel @Inject constructor(
 	val noteColor:State<Int> = _noteColor
 
 
-	//事件流: 該事件不保持,而是發生時就執行一次, 使用MutableSharedFlow
-	// 例如: 旋轉方向後, 標題&內文&顏色 將會保持, 而小吃提示應只跳出一次
+	//單次事件 (僅執行時發生效果,其他事件發生不會觸發ui改動,ex:手機橫置)
 	private val _eventFlow = MutableSharedFlow<UiEvent>()
 	val eventFlow = _eventFlow.asSharedFlow()
 
@@ -127,7 +126,7 @@ class AddEditNoteViewModel @Inject constructor(
 		}
 	}
 
-	//ui事件集合
+	//定義單次事件
 	sealed class UiEvent {
 		data class ShowSnackbar(val message:String) : UiEvent()
 		object SaveNote : UiEvent()

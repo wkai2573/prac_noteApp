@@ -2,7 +2,7 @@ package me.wkai.prac_noteapp.feature_note.domain.repository
 
 import kotlinx.coroutines.flow.Flow
 import me.wkai.prac_noteapp.feature_note.domain.model.Note
-
+/*
 interface NoteRepository {
 
 	fun getNotes():Flow<List<Note>>
@@ -13,3 +13,4 @@ interface NoteRepository {
 
 	suspend fun deleteNote(note:Note)
 }
+ */

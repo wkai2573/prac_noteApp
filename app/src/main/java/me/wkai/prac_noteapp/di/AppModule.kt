@@ -7,8 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.wkai.prac_noteapp.feature_note.data.data_source.NoteDatabase
-import me.wkai.prac_noteapp.feature_note.data.repository.NoteRepositoryImpl
-import me.wkai.prac_noteapp.feature_note.domain.repository.NoteRepository
+import me.wkai.prac_noteapp.feature_note.data.repository.NoteRepository
 import me.wkai.prac_noteapp.feature_note.domain.use_case.*
 import javax.inject.Singleton
 
@@ -31,7 +30,7 @@ object AppModule {
 	@Provides
 	@Singleton
 	fun provideNoteRepository(db:NoteDatabase):NoteRepository {
-		return NoteRepositoryImpl(db.noteDao)
+		return NoteRepository(db.noteDao)
 	}
 
 	//(重點)生成 note使用cases

@@ -2,8 +2,8 @@ package me.wkai.prac_noteapp.feature_note.domain.use_case
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import me.wkai.prac_noteapp.feature_note.data.repository.NoteRepository
 import me.wkai.prac_noteapp.feature_note.domain.model.Note
-import me.wkai.prac_noteapp.feature_note.domain.repository.NoteRepository
 import me.wkai.prac_noteapp.feature_note.domain.util.NoteOrder
 import me.wkai.prac_noteapp.feature_note.domain.util.OrderType
 
